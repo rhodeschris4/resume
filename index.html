@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chris Rhodes — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #faf9f6;
+    --accent: #2d5a27;
+    --accent-light: #e8f0e6;
+    --muted: #6b6b6b;
+    --rule: #d4d0c8;
+    --tag-bg: #f0ede6;
+    --tag-border: #d4d0c8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #eae8e3;
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 40px auto;
+    background: var(--paper);
+    padding: 56px 64px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 30px rgba(0,0,0,0.04);
+    border-radius: 2px;
+  }
+
+  /* Header */
+  header {
+    margin-bottom: 36px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 24px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .contact a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .contact a:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  .contact span::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    background: var(--rule);
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 0;
+  }
+
+  .contact span:first-child::before {
+    display: none;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* Entry blocks */
+  .entry {
+    margin-bottom: 20px;
+  }
+
+  .entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin-bottom: 2px;
+  }
+
+  .entry-title {
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+
+  .entry-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .entry-sub {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2px 16px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    line-height: 1.55;
+  }
+
+  ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Tech tags */
+  .tech {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    padding: 1px 7px;
+    border-radius: 3px;
+    color: var(--muted);
+    margin-left: 8px;
+    letter-spacing: 0.01em;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  /* Skills grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  .skills-grid dt {
+    font-weight: 600;
+    font-size: 0.84rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding-top: 2px;
+  }
+
+  .skills-grid dd {
+    padding-top: 2px;
+    line-height: 1.6;
+  }
+
+  /* Dean's list note */
+  .note {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* PDF link */
+  .pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 28px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .pdf-link:hover {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  .pdf-link svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .page { padding: 32px 24px; margin: 16px; }
+    h1 { font-size: 2rem; }
+    .entry-header { flex-direction: column; }
+    .skills-grid { grid-template-columns: 1fr; gap: 4px 0; }
+    .skills-grid dt { margin-top: 8px; }
+  }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; padding: 40px 48px; }
+    .pdf-link { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <h1>Chris Rhodes</h1>
+    <div class="contact">
+      <span>rhodeschris4@gmail.com</span>
+      <span>+1 216-650-8486</span>
+      <span>Richmond, VA</span>
+      <span><a href="https://linkedin.com/in/" target="_blank">LinkedIn</a></span>
+      <span><a href="https://github.com/" target="_blank">GitHub</a></span>
+    </div>
+  </header>
+
+  <!-- Education -->
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Virginia Commonwealth University</span>
+        <span class="entry-meta">Aug 2025 – Dec 2026 (Expected)</span>
+      </div>
+      <div class="entry-sub">
+        <span>M.S. in Electrical &amp; Computer Engineering</span>
+        <span>Richmond, VA</span>
+      </div>
+      <div class="note">GPA: 4.0 / 4.0</div>
+    </div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Syracuse University</span>
+        <span class="entry-meta">Aug 2018 – May 2022</span>
+      </div>
+      <div class="entry-sub">
+        <span>B.S. in Computer Science, Cum Laude</span>
+        <span>Syracuse, NY</span>
+      </div>
+      <div class="note">Dean's List: Fall 2019, Spring 2020, Fall 2020, Spring 2022</div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section>
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Solutions Engineering Analyst — Deloitte</span>
+        <span class="entry-meta">Oct 2022 – Sep 2024</span>
+      </div>
+      <ul>
+        <li>Devised a data quality metric system for a major distributor by interviewing stakeholders to assess data governance and flow; created a strategic roadmap and financial models forecasting revenue increases from proposed changes.</li>
+        <li>Conducted statistical analysis in R (Wilcoxon test, Cliff's Delta) on large company datasets to uncover key correlations between financial metrics and proprietary AI scores, providing actionable insights for strategic planning.</li>
+        <li>Proposed and designed an industry-specific NLP use case that was selected for development to generate novel client solutions and insights.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <h2>Projects</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Log-Polar FFT Texture Classification <span class="tech">Python · NumPy · PyTorch · OpenCV</span></span>
+      </div>
+      <ul>
+        <li>Designed a hybrid CNN + DSP fusion architecture for texture classification grounded in Fourier–Mellin theory, achieving 77.7% accuracy on KTH-TIPS2-b with under 1M parameters, competitive with 25M+ parameter pretrained methods.</li>
+        <li>Implemented log-polar FFT preprocessing to convert rotation/scale variations into translations, improving accuracy by 7–12% over Cartesian baselines across an 8-configuration ablation study.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Dynamic Routing Optimization with Deep RL <span class="tech">PyTorch · CUDA</span></span>
+      </div>
+      <ul>
+        <li>Developed a custom NetworkX-based routing simulator and implemented an Advantage Actor-Critic (A2C) model in PyTorch to learn congestion-aware routing strategies, outperforming static shortest-path baselines under dynamic network conditions.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Privacy-Preserving LLM Middleware <span class="tech">Python</span></span>
+      </div>
+      <ul>
+        <li>Built server-side obfuscation middleware for self-hosted LLM servers defending against Microsoft's Whisper Leak traffic side-channel attack. Extended the open-source toolkit to support local inference servers and implemented padding, token batching, and packet injection strategies to obscure sensitive conversation topics from passive network observers.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">JUCE Audio Equalizer <span class="tech">C++ · JUCE</span></span>
+      </div>
+      <ul>
+        <li>Developed a real-time audio equalizer with low/high cut filters, a parametric EQ, and slope controls using the JUCE framework.</li>
+        <li>Designed a custom UI with a spectrum analyzer to provide real-time visual feedback of audio manipulation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Technical Skills -->
+  <section>
+    <h2>Technical Skills</h2>
+    <dl class="skills-grid">
+      <dt>Languages</dt>
+      <dd>C++, Python, R, Java, C#, SQL</dd>
+      <dt>Frameworks</dt>
+      <dd>FastAPI, PyTorch, OpenCV, JUCE, Scikit-learn, Pandas</dd>
+      <dt>Automation</dt>
+      <dd>PLCs, Studio 5000</dd>
+      <dt>Databases</dt>
+      <dd>MongoDB, Google Firebase, PostgreSQL</dd>
+      <dt>Tools</dt>
+      <dd>Git, Linux, Docker, Excel, Google Cloud Platform</dd>
+    </dl>
+  </section>
+
+  <a href="resume.pdf" class="pdf-link">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z"/></svg>
+    Download PDF
+  </a>
+</div>
+
+</body>
+</html>
